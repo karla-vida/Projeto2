@@ -1,9 +1,15 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { DivFormUser, ErrorMessage, Button, MainFormUser } from "./FormUserStyled";
+import {
+  DivFormUser,
+  ErrorMessage,
+  Button,
+  MainFormUser,
+} from "./FormUserStyled";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useBuscaCep } from "../../hooks/useBuscaCep";
 
 const messageRequired = "Por favor, preencha este campo";
 
@@ -11,11 +17,19 @@ const schema = yup.object().shape({
   nome: yup.string().required(messageRequired),
   email: yup.string().required(messageRequired),
   senha: yup.string().required(messageRequired),
-  validacao: yup.string().oneOf([null]).required(messageRequired),
+  validacao: yup
+    .string()
+    .oneOf(
+      [yup.ref("senha")],
+      "Favor digitar a mesma senha do campo anterior.",
+    ),
   endereco: yup.string().required(messageRequired),
 });
 
 export const FormUser = () => {
+// const endereco= useBuscaCep("88015430");
+
+
   const {
     register,
     handleSubmit,
@@ -25,13 +39,12 @@ export const FormUser = () => {
   });
 
   const onSubmitHandler = (event) => {
-    alert("teste");
     console.log({ event });
   };
 
   return (
     <MainFormUser>
-        <h1> Cadastro </h1>
+      <h1> Cadastro </h1>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <DivFormUser>
           <label htmlFor="nomeCompleto">Nome completo*</label>
@@ -57,12 +70,7 @@ export const FormUser = () => {
 
         <DivFormUser>
           <label htmlFor="senha">Senha*</label>
-          <input
-            {...register("senha")}
-            type="text"
-            placeholder=""
-            id="Senha"
-          />
+          <input {...register("senha")} type="text" placeholder="" id="Senha" />
           {errors.senha && <ErrorMessage>{errors.senha.message}</ErrorMessage>}
         </DivFormUser>
 
@@ -85,7 +93,7 @@ export const FormUser = () => {
         </DivFormUser>
 
         <DivFormUser>
-          <label htmlFor="endereco">Endereço*</label>
+          <label htmlFor="endereco">CEP*</label>
           <input
             {...register("endereco")}
             type="text"

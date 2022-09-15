@@ -28,7 +28,6 @@ export const ErrorMessage = styled.p`
 `;
 
 export const Button = styled.button`
-  align-self: center;
   background-color: #00863f;
   border-color: #3e5055;
   border-radius: 100px;
@@ -37,17 +36,14 @@ export const Button = styled.button`
   cursor: pointer;
   font-family: Lato, sans-serif;
   font-size: 20px;
-  font-style: normal;
   font-weight: bold;
   height: 50px;
   justify-content: center;
   margin-bottom: 10px;
   margin-top: 10px;
   max-width: 200px;
-  text-align: center;
+
   width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
   &:hover {
     opacity: 0.7;
     color: #87c984;

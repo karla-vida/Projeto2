@@ -1,19 +1,30 @@
 import styled from "styled-components";
 
-export const Container = styled.header`
-    background-color: ${({theme})=>theme.colors.ba};
-    padding: ${({theme})=>theme.spacing.xl};
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+export const NavBarHeader = styled.div`
+  background-color: #00a335;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
 `;
 
-export const ContentTitle = styled.div`
-    display: flex;
-    align-items: center;
-    gap: ${({theme})=>theme.spacing.md};
+export const LogoHeader = styled.img``;
+
+export const TitleHeader = styled.h1``;
+
+export const ButtonLoginHeader = styled.button`
+  width: 100%;
+  padding: 1em;
+  margin: 1.5em 0;
+  border-radius: 3px;
+  background-color: #87c984;
 `;
 
-export const Title = styled.h1`
-color: ${({theme})=>theme.colors.primary};
+export const MenuHeader = styled.a`
+  width: 100%;
+  padding: 1em;
+  margin: 1.5em 0;
+  border-radius: 3px;
+  background-color: #87c984;
 `;

@@ -1,35 +1,22 @@
 /* import { useState } from 'react'; */
-import { Container, ContentTitle, Title } from "./HeaderStyled";
-
-/* import { useCustomTheme } from "../../context" */
-import logo from "../../assets/logo1.png";
-/* import { Button } from "../Button/Button"; */
-
-/* export const NavBar = ()=> {
-    const {handleTheme} = useCustomTheme(); */
+import {
+  NavBarHeader,
+  TitleHeader,
+  LogoHeader,
+  ButtonLoginHeader,
+} from "./HeaderStyled";
+import Logo from "../../assets/logo1.png";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
-  /* const { isAutenticado, onLogin } = useAutenticacao();
-  const [nomeUsuario, setNomeUsuario] = useState("");
-
-  console.log(nomeUsuario);
-
-  const fazLogin = () => {
-    if (!nomeUsuario) {
-      alert("Informe o nome");
-      return;
-    }
-
-    onLogin(nomeUsuario);
-    setNomeUsuario("");
-  }; */
-
   return (
-    <Container>
-        <ContentTitle>
-        <img src={logo} alt= "logo"/>
-        </ContentTitle>
-        <button>Login</button>
-    </Container>
+    <NavBarHeader>
+      <LogoHeader src={Logo}></LogoHeader>
+      <TitleHeader>App Devin</TitleHeader>
+      <ButtonLoginHeader></ButtonLoginHeader>
+      <Link to="/Home">Início</Link>
+      <Link to="/Devices">Adicionar</Link>
+      <Link to="/Profile">Perfil</Link>
+    </NavBarHeader>
   );
 };
