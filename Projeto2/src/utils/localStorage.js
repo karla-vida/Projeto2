@@ -1,4 +1,4 @@
-const THEME = "THEME";
+ const THEME = "THEME";
 
 export const getTheme = () => {
     const theme = localStorage.getItem(THEME);
@@ -11,4 +11,4 @@ export const setTheme = (theme) => {
 
 export const clearTheme = () => {
     return localStorage.clear(THEME);
-};
+}; 

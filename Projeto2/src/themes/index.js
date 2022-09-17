@@ -1,4 +1,4 @@
-export {GlobalStyle} from './GlobalStyle';
-export {ThemeDark} from './ThemeDark';
-export {ThemeLight} from './ThemeLigth';
-export {ThemeBase} from './Theme';
+ export {GlobalStyles} from './GlobalStyles';
+export {themeDark} from './themeDark';
+export {themeLight} from './themeLight';
+export {themeBase} from './themeBase'; 

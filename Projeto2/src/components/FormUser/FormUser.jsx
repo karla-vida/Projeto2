@@ -9,8 +9,7 @@ import {
 } from "./FormUserStyled";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useBuscaCep } from "../../hooks/useBuscaCep";
-
+import { useBuscaCep } from "../../hooks";
 const messageRequired = "Por favor, preencha este campo";
 
 const schema = yup.object().shape({
@@ -27,7 +26,7 @@ const schema = yup.object().shape({
 });
 
 export const FormUser = () => {
-// const endereco= useBuscaCep("88015430");
+ 
 
 
   const {
@@ -37,6 +36,10 @@ export const FormUser = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const {handleChange,logradouro} = useBuscaCep();
+
+  
 
   const onSubmitHandler = (event) => {
     console.log({ event });
@@ -99,11 +102,20 @@ export const FormUser = () => {
             type="text"
             placeholder=""
             id="Endereço"
+            onChange={(e)=>{handleChange(e.target.value)}}
           />
           {errors.endereco && (
             <ErrorMessage>{errors.endereco.message}</ErrorMessage>
           )}
         </DivFormUser>
+
+        <DivFormUser>
+          <label htmlFor="endereco">Logradouro     </label>
+          <input type="text" readOnly placeholder="" id="logradouro" value={logradouro}/>
+         
+        </DivFormUser>
+        
+        
 
         <DivFormUser>
           <Button className="btn primary" type="submit">

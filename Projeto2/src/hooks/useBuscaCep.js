@@ -1,34 +1,27 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { buscaCep } from "../services";
+export const useBuscaCep = () => {
+  const [cep, setCep] = useState(false);
+  const [logradouro, setLogradouro] = useState("");
+  
 
-export function useBuscaCep(cepEnviado) {
-  const [cep, setCep] = useState({ cep: "" });
-  const [informacoes, setInformacoes] = useState({
-    cep: "",
-    logradouro: "",
-    complemento: "",
-    bairro: "",
-    localidade: "",
-    uf: "",
-    ibge: "",
-    gia: "",
-  });
+  
 
-  const getInformacoes = () => {
-    console.log("teste");
-    axios
-      .get("http://viacep.com.br/ws/" + cep + "/json/")
-      .then((response) => {
-        setInformacoes(response.data);
-        console.log(response.data);
-      });
-  };
+  const handleChange = async (event) => {
 
-useEffect(()=>{
-    console.log("teste");
-    setCep(cepEnviado);
-}, []);
+     
+    if (event.length >= 8) {
+      
+      
+      const data  =  await buscaCep(event);
+      setLogradouro(data.logradouro);
+    
+      setCep(event);
+      }
+    
+    
+};
 
-
-  return getInformacoes();
+  return {handleChange, cep,logradouro};
 }

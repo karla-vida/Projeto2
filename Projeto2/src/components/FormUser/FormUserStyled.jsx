@@ -11,7 +11,8 @@ export const DivFormUser = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  background-color: #ffff;
+// background-color: #ffff;
+  background-color: ${({theme})=>theme.colors.backgroundSecondary};
   color: #3e5055;
   max-width: 100%;
   position: relative;
