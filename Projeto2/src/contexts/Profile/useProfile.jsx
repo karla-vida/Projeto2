@@ -1,4 +1,4 @@
- import { useContext } from "react";
+import { useContext } from "react";
 import { ProfileContext } from "./Profile.context";
 
 export const useProfile = () => {
@@ -6,4 +6,3 @@ export const useProfile = () => {
 
   return context;
 };
- 

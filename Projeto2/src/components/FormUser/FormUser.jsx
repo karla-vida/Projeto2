@@ -6,6 +6,8 @@ import {
   ErrorMessage,
   Button,
   MainFormUser,
+  Input,
+  DivForm,
 } from "./FormUserStyled";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -23,12 +25,10 @@ const schema = yup.object().shape({
       "Favor digitar a mesma senha do campo anterior.",
     ),
   endereco: yup.string().required(messageRequired),
+  complemento: yup.string().required(messageRequired),
 });
 
 export const FormUser = () => {
- 
-
-
   const {
     register,
     handleSubmit,
@@ -37,9 +37,8 @@ export const FormUser = () => {
     resolver: yupResolver(schema),
   });
 
-  const {handleChange,logradouro} = useBuscaCep();
-
-  
+  const { handleChange, logradouro, complemento, bairro, localidade, uf } =
+    useBuscaCep();
 
   const onSubmitHandler = (event) => {
     console.log({ event });
@@ -49,20 +48,22 @@ export const FormUser = () => {
     <MainFormUser>
       <h1> Cadastro </h1>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
+    <DivForm>
+    <DivFormUser>
         <DivFormUser>
           <label htmlFor="nomeCompleto">Nome completo*</label>
-          <input {...register("nome")} placeholder="" type="text" />
+          <Input {...register("nome")} placeholder="" type="text" />
           {errors.nome && <ErrorMessage>{errors.nome.message}</ErrorMessage>}
         </DivFormUser>
 
         <DivFormUser>
           <label htmlFor="urlFoto">URL de uma foto</label>
-          <input type="text" placeholder="" id="Foto" />
+          <Input type="text" placeholder="" id="Foto" />
         </DivFormUser>
 
         <DivFormUser>
           <label htmlFor="eMail">E-mail*</label>
-          <input
+          <Input
             {...register("email")}
             type="text"
             placeholder=""
@@ -73,13 +74,13 @@ export const FormUser = () => {
 
         <DivFormUser>
           <label htmlFor="senha">Senha*</label>
-          <input {...register("senha")} type="text" placeholder="" id="Senha" />
+          <Input {...register("senha")} type="text" placeholder="" id="Senha" />
           {errors.senha && <ErrorMessage>{errors.senha.message}</ErrorMessage>}
         </DivFormUser>
 
         <DivFormUser>
           <label htmlFor="validacaoSenha">Validação de senha*</label>
-          <input
+          <Input
             {...register("validacao")}
             type="text"
             placeholder=""
@@ -92,17 +93,21 @@ export const FormUser = () => {
 
         <DivFormUser>
           <label htmlFor="telefone">Telefone</label>
-          <input type="text" placeholder="" id="Telefone" />
+          <Input type="text" placeholder="" id="Telefone" />
         </DivFormUser>
-
+        </DivFormUser>
+       
+        <DivFormUser>
         <DivFormUser>
           <label htmlFor="endereco">CEP*</label>
-          <input
+          <Input
             {...register("endereco")}
             type="text"
             placeholder=""
             id="Endereço"
-            onChange={(e)=>{handleChange(e.target.value)}}
+            onChange={(e) => {
+              handleChange(e.target.value);
+            }}
           />
           {errors.endereco && (
             <ErrorMessage>{errors.endereco.message}</ErrorMessage>
@@ -110,21 +115,66 @@ export const FormUser = () => {
         </DivFormUser>
 
         <DivFormUser>
-          <label htmlFor="endereco">Logradouro     </label>
-          <input type="text" readOnly placeholder="" id="logradouro" value={logradouro}/>
-         
+          <label htmlFor="endereco">Logradouro</label>
+          <Input
+            type="text"
+            readOnly
+            placeholder=""
+            id="logradouro"
+            value={logradouro}
+          />
         </DivFormUser>
-        
-        
 
         <DivFormUser>
+          <label htmlFor="endereco">Complemento</label>
+          <Input
+            {...register("complemento")}
+            type="text"
+            placeholder=""
+            id="complemento"
+          />
+          {errors.complemento && (
+            <ErrorMessage>{errors.complemento.message}</ErrorMessage>
+          )}
+        </DivFormUser>
+
+        <DivFormUser>
+          <label htmlFor="endereco">Bairro</label>
+          <Input
+            type="text"
+            readOnly
+            placeholder=""
+            id="bairro"
+            value={bairro}
+          />
+        </DivFormUser>
+
+        <DivFormUser>
+          <label htmlFor="endereco">Localidade</label>
+          <Input
+            type="text"
+            readOnly
+            placeholder=""
+            id="localidade"
+            value={localidade}
+          />
+        </DivFormUser>
+
+        <DivFormUser>
+          <label htmlFor="endereco">UF</label>
+          <Input type="text" readOnly placeholder="" id="uf" value={uf} />
+        </DivFormUser>
+        </DivFormUser>
+        </DivForm>
+        <DivForm>
           <Button className="btn primary" type="submit">
             Cadastrar
           </Button>
           <Button className="btn secondary" type="button">
             Login
           </Button>
-        </DivFormUser>
+        </DivForm>
+       
       </form>
     </MainFormUser>
   );

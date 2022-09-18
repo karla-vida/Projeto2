@@ -20,24 +20,20 @@ max-width: 480px;
 padding: 0.5rem;
 `;
 
-export const FieldEmail = styled.div`
+export const FieldDiv = styled.div`
 display: block;
 `;
 
-export const FieldSenha = styled.div`
-display: block;
-`;
-
-export const InputSenha = styled.input`
-display: block;
-
+export const FieldInput = styled.input`
+width: 100%;
 `;
 
 export const ButtonLoginPage = styled.button`
-  width: 100%;
   padding: 1em;
   margin: 1.5em 0;
   border-radius: 3px;
   background-color: #50788A;
   color: #3e5055;
+  text-align: center;
+  margin-top: 1rem;
 `;

@@ -1,3 +1,3 @@
- export { CustomThemeContext } from "./CustomThemeContext";
+export { CustomThemeContext } from "./CustomThemeContext";
 export { CustomThemeProvider } from "./CustomThemeProvider";
-export { useCustomTheme } from "./useCustomTheme"; 
+export { useCustomTheme } from "./useCustomTheme";

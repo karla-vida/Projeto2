@@ -1,36 +1,91 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-export const NavBarHeader = styled.div`
-  background-color: #00a335;
-  background-color: ${({theme})=>theme.colors.backgroundSecondary};
+
+export const ContainerHeader = styled.div`
+  background-color: ${({ theme }) => theme.colors.primary};
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: #FFFFFF;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 `;
 
 export const LogoHeader = styled.img`
-
+  width: 100px;
+  height: 90px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+`;
+export const DivHeader = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const TitleHeader = styled.h1`
-color: #FFFFFF;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 42px;
+  text-align: left;
+  color: #ffff;
+  width: 194px;
+  height: 42px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 `;
 
 export const ButtonLoginHeader = styled.button`
+  padding: 15px 24px;
+  width: 91px;
+  height: 38px;
+  background: #3e5055;
+  border-radius: 40px;
+  color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-align: center;
+  line-height: 18px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  padding: 1em;
-  margin: 1.5em 0;
-  border-radius: 3px;
-  background-color: #ffff;
-  color: #3e5055;
+  &:hover {
+    opacity: 0.7;
+   color: #00A8D5;
+  }
 `;
 
-
-
 export const StyledLink = styled(Link)`
-  color: #3e5055;
+  color: black;
   text-decoration: none;
-  margin: 1rem;
-  position: relative;
-  `;
+  background-color: #ffff;
+  border-radius: 40px;
+  padding: 10px 24px;
+  align-items: center;
+  &:hover {
+    opacity: 0.7;
+   color: #00A8D5;
+  }
+`;
+
+export const NavBarHeader = styled.div`
+  display: flex;
+  border-radius: 40px;
+  padding: 10px 24px;
+  gap: 10px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+`;

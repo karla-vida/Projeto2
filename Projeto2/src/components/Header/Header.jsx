@@ -4,21 +4,27 @@ import {
   LogoHeader,
   ButtonLoginHeader,
   StyledLink,
+  ContainerHeader,
+  DivHeader,
 } from "./HeaderStyled";
-import Logo from "../../assets/logo1.png";
-import { Link } from "react-router-dom";
+import Logo from "../../assets/logo.jpg";
 import { useCustomTheme } from "../../contexts";
 
 export const Header = () => {
-  const {handleTheme} = useCustomTheme();
+  const { handleTheme } = useCustomTheme();
   return (
-    <NavBarHeader>
+    <ContainerHeader>
+<DivHeader>
       <LogoHeader src={Logo}></LogoHeader>
-      <TitleHeader>App Devin</TitleHeader>
-      <ButtonLoginHeader onClick={handleTheme}>Alterar Tema</ButtonLoginHeader>
-      <Link to="/Home">Início</Link>
-      <Link to="/Devices">Adicionar</Link>
-      <Link to="/Profile">Perfil</Link>
-    </NavBarHeader>
-  );
+      <TitleHeader>Conect Lab</TitleHeader>
+      </DivHeader>
+      <NavBarHeader>
+      <ButtonLoginHeader onClick={handleTheme}>Alterar tema</ButtonLoginHeader>
+      <StyledLink to="/Login">Login</StyledLink>
+      <StyledLink to="/Home">Início</StyledLink>
+      <StyledLink to="/Devices">Adicionar</StyledLink>
+      <StyledLink to="/Profile">Perfil</StyledLink>
+      </NavBarHeader>
+    </ContainerHeader>
+   );
 };

@@ -9,10 +9,9 @@ import { AppLayout } from "./layout";
 function App() {
   return (
     <Router>
-    <CustomThemeProvider>
-
-      <AppLayout></AppLayout>
-    </CustomThemeProvider>
+      <CustomThemeProvider>
+        <AppLayout></AppLayout>
+      </CustomThemeProvider>
     </Router>
     /*
     <Router>
@@ -29,7 +28,7 @@ function App() {
   
       </div>
     </Router>
-   */ 
+   */
   );
 }
 export default App;
