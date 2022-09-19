@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const ContainerHeader = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary};
+  /* background-color: ${({ theme }) => theme.colors.primary}; */
+  background-color: #00863f;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -39,21 +40,22 @@ export const TitleHeader = styled.h1`
   flex: none;
   order: 1;
   flex-grow: 0;
+  margin-left: 20px;
 `;
 
 export const ButtonLoginHeader = styled.button`
-  padding: 15px 24px;
+  padding: 25px 20px;
   width: 91px;
-  height: 38px;
+  height: 30px;
   background: #3e5055;
   border-radius: 40px;
   color: #ffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
+  font-weight: 500;
   text-align: center;
-  line-height: 18px;
+  
   font-size: 14px;
   cursor: pointer;
   transition: 0.3s;
@@ -83,7 +85,6 @@ export const StyledLink = styled(Link)`
 export const NavBarHeader = styled.div`
   display: flex;
   border-radius: 40px;
-  padding: 10px 24px;
   gap: 10px;
   flex: none;
   order: 1;

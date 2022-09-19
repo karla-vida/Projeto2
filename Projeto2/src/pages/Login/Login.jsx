@@ -1,43 +1,53 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState } from "react";
+import { useAuth } from "../../contexts";
+import {
+  DivLoginPage,
+  TitleLoginPage,
+  FormLoginPage,
+  FieldDiv,
+  FieldInput,
+  ButtonLoginPage,
+} from "./LoginPageStyled";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const {authenticated, user, handleLogin} = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+     handleLogin(email, senha);
     console.log("submit");
   };
 
   return (
-    <div id="login">
-      <h1 className="title">Login</h1>
-      <form className="form">
-        <div className="field">
+    <DivLoginPage>
+      <TitleLoginPage>Login</TitleLoginPage>
+      <FormLoginPage onSubmit={handleSubmit}>
+        <FieldDiv>
           <label htmlFor="email">Email</label>
-          <input
+          <FieldInput
             type="email"
             name="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
-        <div className="field">
+        </FieldDiv>
+        <FieldDiv>
           <label htmlFor="senha">Senha</label>
-          <input
+          <FieldInput
             type="senha"
             name="senha"
             id="senha"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-        </div>
+        </FieldDiv>
         <div className="actions">
-          <button type="submit">Entrar</button>
+          <ButtonLoginPage type="submit">Entrar</ButtonLoginPage>
         </div>
-      </form>
-    </div>
+      </FormLoginPage>
+    </DivLoginPage>
   );
 };
 

@@ -10,8 +10,9 @@ export const AppLayout = ({ children }) => {
   const { theme } = useCustomTheme();
   return (
     <ThemeProvider theme={theme}>
+      
       <Header></Header>
-      <GlobalStyles />
+      <GlobalStyles/>
       <MainTag>
         <Routes>
           <Route path="/" element={<FormUser />} />

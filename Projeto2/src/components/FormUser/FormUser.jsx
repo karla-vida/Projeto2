@@ -40,7 +40,10 @@ export const FormUser = () => {
   const { handleChange, logradouro, complemento, bairro, localidade, uf } =
     useBuscaCep();
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = async (event) => {
+    console.log({ event });
+
+   // const usuario = await autenticarFetch("popa@teste.com.br","popajr");
     console.log({ event });
   };
 
@@ -170,7 +173,7 @@ export const FormUser = () => {
           <Button className="btn primary" type="submit">
             Cadastrar
           </Button>
-          <Button className="btn secondary" type="button">
+          <Button className="btn secondary"  type="button">
             Login
           </Button>
         </DivForm>

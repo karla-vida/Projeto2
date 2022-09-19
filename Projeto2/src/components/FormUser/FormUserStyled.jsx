@@ -34,10 +34,20 @@ export const DivFormUser = styled.div`
 `;
 
 export const Input = styled.input`
+width: 100%;
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 26px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4.84px;
 background-color: white;
 color: black;
 background: none;
-font-size: 20px;
 `;
 
 export const ErrorMessage = styled.p`

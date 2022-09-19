@@ -2,16 +2,22 @@ import { FormUser } from "./components/FormUser";
 import { Header } from "./components/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home, Devices, Profile } from "./pages";
-import { CustomThemeProvider } from "./contexts";
+import { AuthProvider, CustomThemeProvider } from "./contexts";
 import { GlobalStyles } from "./themes";
 import { AppLayout } from "./layout";
 
 function App() {
   return (
     <Router>
+      <AuthProvider>
       <CustomThemeProvider>
-        <AppLayout></AppLayout>
+       
+        <AppLayout>
+
+        </AppLayout>
+       
       </CustomThemeProvider>
+       </AuthProvider>
     </Router>
     /*
     <Router>
