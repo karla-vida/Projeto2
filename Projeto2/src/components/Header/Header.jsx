@@ -17,7 +17,7 @@ export const Header = () => {
     <ContainerHeader>
       <DivHeader>
         <LogoHeader src={Logo}></LogoHeader>
-        <TitleHeader>Conect Lab </TitleHeader>
+        <TitleHeader>Connect Lab </TitleHeader>
       </DivHeader>
       <NavBarHeader>
         {authenticated && (
