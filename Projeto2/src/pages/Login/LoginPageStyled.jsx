@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const DivLoginPage = styled.div`
   display: flex;
@@ -30,7 +31,6 @@ export const FormLoginPage = styled.form`
   padding: 10px 30px;
   color: #3e5055;
   font-size: 20px;
-
 `;
 
 export const FieldDiv = styled.div`
@@ -51,7 +51,11 @@ export const FieldInput = styled.input`
   padding: 0px;
   background-color: white;
   color: black;
-  background: none;
+`;
+
+export const DivButton = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ButtonLoginPage = styled.button`
@@ -65,13 +69,31 @@ export const ButtonLoginPage = styled.button`
   font-size: 20px;
   font-weight: bold;
   height: 50px;
-  justify-content: center;
   margin-bottom: 10px;
   margin-top: 10px;
   padding: 10px 24px;
-  gap: 16px;
+  &:hover {
+    opacity: 0.7;
+    color: #87c984;
+  }
+`;
 
-  width: 100%;
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  align-items: center;
+  background-color: #3e5055;
+  border-color: #ffff;
+  border-radius: 40px;
+  border-width: 0px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Lato, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  height: 50px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px 24px;
   &:hover {
     opacity: 0.7;
     color: #87c984;

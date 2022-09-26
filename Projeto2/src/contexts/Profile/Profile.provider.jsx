@@ -5,15 +5,15 @@ import { service } from "../../services";
 
 export const ProfileProvider = ({ children }) => {
   const [profile, setProfile] = useState(service);
-  const handleFollow = (id) => {
+  const handleProfile = (id) => {
     const profileUpDated = profile.map((p) =>
-      p.id === id ? { ...p, seguindo: !p.seguindo } : p,
+      p.id === id ? { ...p, profile: !p.profile } : p,
     );
     setProfile(profileUpDated);
   };
 
   return (
-    <ProfileContext.Provider value={{ profile, handleFollow }}>
+    <ProfileContext.Provider value={{ profile, handleProfile }}>
       {children}
     </ProfileContext.Provider>
   );

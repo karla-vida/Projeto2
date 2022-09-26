@@ -55,7 +55,6 @@ export const ButtonLoginHeader = styled.button`
   justify-content: center;
   font-weight: 500;
   text-align: center;
-  
   font-size: 14px;
   cursor: pointer;
   transition: 0.3s;
@@ -65,7 +64,7 @@ export const ButtonLoginHeader = styled.button`
   width: 100%;
   &:hover {
     opacity: 0.7;
-   color: #00A8D5;
+    color: #00a8d5;
   }
 `;
 
@@ -78,7 +77,7 @@ export const StyledLink = styled(Link)`
   align-items: center;
   &:hover {
     opacity: 0.7;
-   color: #00A8D5;
+    color: #00a8d5;
   }
 `;
 

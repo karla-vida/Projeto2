@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { buscaCep } from "../services";
+
 export const useBuscaCep = () => {
   const [cep, setCep] = useState(false);
   const [logradouro, setLogradouro] = useState("");
@@ -19,5 +20,5 @@ export const useBuscaCep = () => {
     }
   };
 
-  return { handleChange, cep, logradouro, complemento, bairro, localidade, uf};
+  return { handleChange, cep, logradouro, complemento, bairro, localidade, uf };
 };
